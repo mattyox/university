@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# .bcp aaaa
+# without any parameter give help and exit
+# if ~/backups does not exist try to create it
+# if is does not succed exit and inform
+# aaaa - link or directory omit, backup only files
+# if aaaa is a file copy to ~/backups and add .backup to name
+# proceed firstly with one file then with several
+
+
+if [ $# -lt 1 ]
+then
+	echo "Number of input arguments is too small!"
+	echo "You need to select 1 file to be backuped!"
+	echo "The input should be: ./bcp file"
+	
+	exit 0
+fi
+
+if [ -d ~/backups ]
+then
+	echo "Backup directory found"
+else
+	echo "Backup directory does not exist!"
+	echo "Trying to create backup folder"
+	
+	mkdir ~/backups
+	
+	if [ -d ~/backups ]
+	then
+		echo "Backup directory succesfully created"
+	else
+		echo "Can not create backup directory!"
+		
+		exit 0
+	fi
+fi
+
+if [ -e $1 ]
+	then
+		if [ -d $1 ]
+			then
+				echo "The selected file is a directory, it can not be backuped!"
+				
+				exit 0
+				
+		elif [ -h $1 ]
+			then
+				echo "The selected file is a symbolic link, it can not be backuped!"
+				
+				exit 0
+		elif [ -f $1 ]
+			then
+				echo "Backuping selected file"
+		
+				cp $1 ~/backups/$1.backup
+		fi
+	else
+		echo "Selected file does not exist!"
+		
+		exit 0
+fi
+
+echo "Backup succesfully completed"
