@@ -1,0 +1,5 @@
+Karol;Wojtyła;1920;Wadowice
+Lech;Kaczyński;1949;Warszawa
+Janusz;Korwin-Mikke;1942;Warszawa
+Zenon;Martyniuk;1969;Gredele
+Adrian;Zandberg;1979;Aalborg
