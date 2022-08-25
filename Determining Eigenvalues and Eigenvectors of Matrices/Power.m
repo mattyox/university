@@ -1,28 +1,33 @@
-% Power method
+function pow = power(a,it)
+    r = size(a)(1) %size of matrix in one dimension
+    x = zeros(r,1) %our matrixes during iterations
+    temp=zeros(r,1)
+    y=zeros(r,1) % y matrix
+    x(1)=1
+    hme = 0 %highest-module eigenvalue
+    ean = zeros(r,1) %eigenvector after normalisation
+    for i = 1:it
+        x=a*x
+        if i == it-1
+        temp = x
+        end
+    end
+    for i = 1:r
+        y(i) =x(i)/temp(i)
+    end
+    for i = 1:r
+        hme = hme + y(i)
+    end
+    hme = 1/r * hme
 
-%type Matrix.txt;
-%A = readmatrix('Matrix.txt');
+    for i = 1:r
+        ean(i) = 1/max(x) * x(i)
+    end
 
-% Test matrix
-A = [1 1 1; 1 2 3; 1 3 6];
-
-% Test number of iterations
-it = 8;
-
-% Initial vector
-n = length(A);
-y = zeros(n, it+1);
-y(1, 1) = 1;
-
-for i = 1:it
-    y(:, i+1) = A * y(:, i);
+    display('Eigenvector of matrix A: ')
+    disp(x)
+    display('Eigenvalue: ')
+    disp(hme)
+    display('After normalisation: ')
+    disp(ean)
 end
-
-sum = 0;
-for i = 1:n
-    sum = sum + y(i, it+1) / y(i, it);
-end
-
-eig = (1/n) * sum;
-
-disp(eig);
