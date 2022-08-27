@@ -1,0 +1,1 @@
+Implementation of selection sort, insertion sort (with binary search), bubble sort (with storing information on whether any changes were made and storing the position of the last change, as all pairs below this position are already sorted) capable of integers and strings sorting
