@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <style>
+    /* 
+	Creating an animation function that rotates the object by -360 degrees
+	*/
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(-360deg)
+      }
+    }
+
+    /* 
+	Selector that sets a rotate animation, lasting 1s, on img elements that are inside an element with the special class. The animation starts when you hover over the image
+	*/
+    .special img:hover {
+      animation: rotate 1s;
+    }
+
+    /* 
+    Selector that sets the size of the img element to 100px vertically and horizontally
+    */
+    .special img {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+
+  <title>Task1</title>
+</head>
+
+<body>
+  <div class="special"><img class="image"
+      src="https://i2.wp.com/jawia.pl/wp-content/uploads/2017/12/Images_ogie%C5%84.jpg?fit=1192%2C800&ssl=1">
+  </div>
+</body>
+
+</html>
