@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<br>
+
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	table,
+	td,
+	th {
+		border: 1px solid black;
+		padding: 5px;
+		text-align: center;
+	}
+</style>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th><a href="/readers/add/">Add</a></th>
+	</tr>
+	{% if readers %}
+	{% for r in readers %}
+	<tr>
+		<th>{{ r.id }}</th>
+		<th>{{ r.name }}</th>
+		<th>
+			<a href="/readers/edit/{{ r.id }}/">Edit</a> </br>
+			<a href="/readers/delete/{{ r.id }}/">Delete</a>
+		</th>
+	</tr>
+	{% endfor %}
+	{% else %}
+	<p>No readers are available.</p>
+	{% endif %}
+</table>
+
+{% endblock %}

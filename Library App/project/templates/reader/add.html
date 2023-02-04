@@ -1,0 +1,7 @@
+<form action="/readers/add/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add">
+</form>
+
+<a href="/readers/">Cancel</a>

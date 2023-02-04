@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<br>
+
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	table,
+	td,
+	th {
+		border: 1px solid black;
+		padding: 5px;
+		text-align: center;
+	}
+</style>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Title</th>
+		<th>Author</th>
+		{% if user.is_authenticated %}
+		<th><a href="/books/add/">Add</a></th>
+		{% endif %}
+	</tr>
+	{% if books %}
+	{% for b in books %}
+	<tr>
+		<th>{{ b.id }}</th>
+		<th>{{ b.title }}</th>
+		<th>{{ b.author }}</th>
+		<th>
+			{% if user.is_authenticated %}
+			<a href="/books/edit/{{ b.id }}/">Edit</a> </br>
+			<a href="/books/delete/{{ b.id }}/">Delete</a>
+			{% endif %}
+		</th>
+	</tr>
+	{% endfor %}
+	{% else %}
+	<p>No books are available.</p>
+	{% endif %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>
+    {% if loan %}
+
+    <b>Reader:</b>
+    {{ loan.reader.id }}
+    {{ loan.reader.name }}
+    <br>
+    <b>Book:</b>
+    {{ loan.book.id }}
+    {{ loan.book.title }}
+    {{ loan.book.author }}
+    <br>
+    <b>Date of return:</b>
+    {{ loan.date_of_return }}
+
+    {% else %}
+<p>Book is not on loan.</p>
+{% endif %}
+</p>
+
+{% endblock %}

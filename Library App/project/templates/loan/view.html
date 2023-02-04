@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>
+    {{ loan.id }}
+    {{ loan.book.id }}
+    {{ loan.book.title }}
+    {{ loan.book.author }}
+    {{ loan.reader.id }}
+    {{ loan.reader.name }}
+    {{ loan.date_of_return }}
+</p>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% block content %}
+
+{% if error %}
+{{ error }}
+{% endif %}
+
+<h1>Action prohibited. Cannot delete a book on loan</h1>
+
+<a href="/books">Cancel</a>
+
+{% endblock %}

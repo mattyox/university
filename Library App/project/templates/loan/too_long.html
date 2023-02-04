@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	table,
+	td,
+	th {
+		border: 1px solid black;
+		padding: 5px;
+		text-align: center;
+	}
+</style>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Reader's ID</th>
+		<th>Reader's name</th>
+		<th>Book's ID</th>
+		<th>Book's title</th>
+		<th>Book's author</th>
+		<th>Date of return</th>
+	</tr>
+	{% if loans %}
+	{% for l in loans %}
+	<tr>
+		<th>{{ l.id }}</th>
+		<th>{{ l.reader.id }}</th>
+		<th>{{ l.reader.name }}</th>
+		<th>{{ l.book.id }}</th>
+		<th>{{ l.book.title }}</th>
+		<th>{{ l.book.author }}</th>
+		<th>{{ l.date_of_return }}</th>
+	</tr>
+	{% endfor %}
+	{% else %}
+	<p>No books are overdue.</p>
+	{% endif %}
+</table>
+
+{% endblock %}
