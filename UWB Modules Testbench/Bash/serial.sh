@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SCRIPT_DIR="/home/pi/Python"
+MEASUREMENT_DIR="/home/pi/Measurements"
+PROTOCOL_DIR="/UART"
+
+MODULES_NUM="$1"
+
+# Check if not set or less than 1
+if [ -z "$MODULES_NUM" ] || [ "$MODULES_NUM" -lt 1 ]; then
+    echo "Usage: $0 <modules number> (must be >= 1)"
+    exit 1
+fi
+
+python3 "$SCRIPT_DIR/serial_logger.py" -f "$MEASUREMENT_DIR/$PROTOCOL_DIR/serial_log_${MODULES_NUM}.txt" &
+
+wait
